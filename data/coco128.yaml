@@ -1,0 +1,16 @@
+train: ../yolov5/data/Dataset/images/train
+val: ../yolov5/data/Dataset/images/val
+
+nc: 6
+names: ['Mass','cardiomegaly','Pneumonia','Pneumothorax','Atelectasis','Effusion']
+
+
+#Mass 0
+#Nodules 1
+#Pneumonia 2
+#Pneumothorax 3
+#atelectasis 4
+#effusion 5
+#cardiomegaly 6
+#infiltrate 7
+

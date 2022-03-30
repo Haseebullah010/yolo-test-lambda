@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region ap-southeast-1)
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t yolo-test-lambda .
+      - docker tag yolo-test-lambda:latest 323145895334.dkr.ecr.ap-southeast-1.amazonaws.com/yolo-test-lambda:yolo-test-lambda
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 323145895334.dkr.ecr.ap-southeast-1.amazonaws.com/yolo-test-lambda:yolo-test-lambda
